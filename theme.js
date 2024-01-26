@@ -80,6 +80,9 @@ export const theme = extendTheme({
         white: {
             400: '#fff',
         },
+        purple:{
+            400: '#759eff'
+        }
     },
     config: {
         initialColorMode: 'dark',
