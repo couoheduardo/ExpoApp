@@ -1,12 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet,  View } from 'react-native';
+import { Button, NativeBaseProvider, Text} from "native-base";
+import { theme } from './theme';
+import LoginScreen from './LoginScreen';
+import HomeScreen from './HomeScreen';
 
+
+//npx patch-package native-base
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider theme={theme}>
+      <HomeScreen></HomeScreen>
+    </NativeBaseProvider>
   );
 }
 
