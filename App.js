@@ -4,13 +4,14 @@ import { Button, NativeBaseProvider, Text} from "native-base";
 import { theme } from './theme';
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
+import EpisodesList from './EpisodesList';
 
 
 //npx patch-package native-base
 export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
-      <HomeScreen></HomeScreen>
+     <EpisodesList></EpisodesList>
     </NativeBaseProvider>
   );
 }

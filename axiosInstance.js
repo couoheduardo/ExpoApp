@@ -2,7 +2,7 @@ import axios from "axios";
 import Constants from 'expo-constants';
 
 const axiosInstance = axios.create({
-    baseURL: Constants.manifest.extra.production ? Constants.manifest.extra.URL : Constants.manifest.extra.URL_DEV,
+    baseURL: "https://rickandmortyapi.com",
     headers: {
         Accept: "application/json",
         Platform: 'app-partner'
