@@ -1,8 +1,8 @@
 import { Text, Image, Button, View } from "native-base";
-import girlRunning from "./assets/girl.png";
+import girlRunning from "../assets/girl.png";
 
 
-const HomeScreenKM = ()=>{
+const HomeScreenKM = ({navigation})=>{
     return (
         <View pb={4} flexDirection={"row"}>
         <View flex={1} alignItems={"center"} justifyContent={"center"}>
@@ -19,7 +19,10 @@ const HomeScreenKM = ()=>{
           <Text fontSize={20} bold color={"purple.400"}>
             5.31 KM
           </Text>
-          <Button width={100} size={"xs"} mt={2}>
+          <Button width={100} size={"xs"} mt={2} onPress={()=> navigation.navigate('EpisodesList',{x:11})}>
+            Details
+          </Button>
+          <Button width={100} size={"xs"} mt={2} onPress={()=> navigation.navigate('EpisodesList',{x:10})}>
             Details
           </Button>
         </View>

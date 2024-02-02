@@ -2,7 +2,6 @@ import { Text, Image, Button, View } from "native-base";
 import { SafeAreaView } from "react-native-safe-area-context";
 import HomeScreenCalendar from "./HomeScreenCalendar";
 
-import girlRunning from "./assets/girl.png";
 import HomeScreenKM from "./HomeScreenKM";
 import Icon from "react-native-vector-icons/Ionicons";
 import stylesX from "./HomsScreenStyleSheet";
@@ -18,7 +17,7 @@ const days = [
   { day: "Dom" },
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View flex={1}>
@@ -32,7 +31,7 @@ const HomeScreen = () => {
           <HomeScreenCalendar days={days}></HomeScreenCalendar>
         </View>
         <View>
-          <HomeScreenKM></HomeScreenKM>
+          <HomeScreenKM navigation={navigation}></HomeScreenKM>
         </View>
 
         <View alignItems={"center"} justifyContent={"center"}>

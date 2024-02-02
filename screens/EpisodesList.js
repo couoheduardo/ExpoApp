@@ -3,9 +3,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import EpisodesItem from "./EpisodesItem";
 import { useCallback, useEffect, useState } from "react";
 import { RefreshControl } from "react-native";
-import axiosInstance from "./axiosInstance";
+import axiosInstance from "../axiosInstance";
 
-const EpisodesList = () => {
+const EpisodesList = ({route}) => {
   const [refreshing, setRefreshing] = useState(false);
   const [episodes, setEpisodes] = useState([])
 
@@ -17,8 +17,13 @@ const EpisodesList = () => {
   }
 
   useEffect(()=>{
-    onRefresh();
-  },[])
+    if(route.params.x === 10){
+      onRefresh();
+    }
+  },[route.params.x])
+
+
+  console.log(route.params.x)
 
 
   return (
