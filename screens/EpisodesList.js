@@ -17,13 +17,12 @@ const EpisodesList = ({route}) => {
   }
 
   useEffect(()=>{
-    if(route.params.x === 10){
+    if(route.params?.x === 10){
       onRefresh();
     }
-  },[route.params.x])
+  },[route.params?.x])
 
 
-  console.log(route.params.x)
 
 
   return (
