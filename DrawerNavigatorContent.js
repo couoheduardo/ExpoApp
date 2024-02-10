@@ -3,11 +3,15 @@ import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { Text, View } from "native-base";
 
 import { Linking, TouchableOpacity } from "react-native";
+import { connect } from "react-redux";
+
+import { loggedOutAction } from "./redux/ducks/appDuck";
 
 const DrawerNavigatorContent = ({
   navigation,
   setAttribute,
   navigationDuck,
+  loggedOutAction
 }) => {
   return (
     <DrawerContentScrollView
@@ -73,10 +77,35 @@ const DrawerNavigatorContent = ({
               </View>
             </View>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={async () => {
+              await loggedOutAction();
+            }}
+          >
+            <View flexDirection={"row"} mb={4}>
+              <View flex={0.2} alignItems={"center"} justifyContent={"center"}>
+                {/*<Image source={iconHelp} style={{width: 20, height: 20}}></Image>*/}
+              </View>
+              <View flex={1} justifyContent={"center"}>
+                <Text fontSize={"lg"} fontFamily={"PantonRegular"}>
+                  Cerrar Sesión
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </DrawerContentScrollView>
   );
 };
 
-export default DrawerNavigatorContent;
+
+const mapState = (state)=>{
+  return {
+
+  }
+}
+
+
+export default connect(mapState,{loggedOutAction})(DrawerNavigatorContent) ;

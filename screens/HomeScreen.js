@@ -5,7 +5,7 @@ import HomeScreenCalendar from "./HomeScreenCalendar";
 import HomeScreenKM from "./HomeScreenKM";
 import Icon from "react-native-vector-icons/Ionicons";
 import stylesX from "./HomsScreenStyleSheet";
-
+import { connect } from "react-redux";
 
 const days = [
   { day: "Lun", mark: true },
@@ -17,14 +17,14 @@ const days = [
   { day: "Dom" },
 ];
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = ({ navigation,appDuck }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View flex={1}>
-        <View flex={0.2} pl={5} pt={5}>
+        <View flex={0.3} pl={5}>
           <Text fontWeight={"bold"}>Hello</Text>
           <Text fontWeight={"bold"} color={"#759eff"}>
-            Amara
+            {appDuck.user.name}
           </Text>
         </View>
         <View padding={2} pb={4}>
@@ -82,5 +82,10 @@ const HomeScreen = ({navigation}) => {
   );
 };
 
-export default HomeScreen;
+const mapState = (state) => {
+  return {
+    appDuck: state.appDuck,
+  };
+};
 
+export default connect(mapState)(HomeScreen);
